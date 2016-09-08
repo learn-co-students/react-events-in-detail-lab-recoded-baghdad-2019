@@ -1,15 +1,14 @@
 # React Events in detail
 
-## Objectives
-2. Practice using event data
-1. Practice persisting events
+## Overview
 
+In this lab, you'll work with event data and persisting events. 
 
 ## Two Buttons To Rule Them All
 ![Using buttons](https://media.giphy.com/media/HraQGUYyPxDz2/giphy.gif)
 
 In this lab, you'll be working on two components — two buttons, to be more precise. These aren't just regular buttons,
-however! They both serve a very specific purpose...
+however! They both serve a very specific purpose.
 
 ### `CoordinatesButton`
 1. In the `components/CoordinatesButton.js` file, create a `CoordinatesButton` React component.
