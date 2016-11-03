@@ -11,15 +11,15 @@ In this lab, you'll be working on two components — two buttons, to be more pre
 
 ### `CoordinatesButton`
 1. In the `components/CoordinatesButton.js` file, create a `CoordinatesButton` React component.
-2. This component takes in one prop: `onReceiveCoordinates`. This prop is a _function_.
+2. This component takes in one prop: `onReceiveCoordinates`. This prop is a _function). (This props is only passed in the test suite, you will have errors in the browser)
 3. When the button is clicked, create an array with two elements: the X and Y coordinates of the mouse. Find these using the event data.
 4. The `onReceiveCoordinates` callback prop is then called with these coordinates.
 
 ### `DelayedButton`
 1. In the `components/DelayedButton.js` file, create a `DelayedButton` React component
-2. This component takes two props: `onDelayedClick` (a function), and `delay` (a number).
-3. When the button is clicked, we create an array with two elements: the X and Y coordinates of the button that you retrieve using the event data.
-4. The `onReceiveCoordinates` callback prop is then called with these coordinates.
+2. This component takes two props: `onDelayedClick` (a function), and `delay` (a number). (These props are only passed in the test suite, you will have errors in the browser)
+3. When the button is clicked, we want to persist the event so we can pass it to the `this.props.onDelayedClick()` in a `setTimeout()` block. The `setTimeout()` will be set to `this.props.delay`.
+
 
 ## Resources
 
