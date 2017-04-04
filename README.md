@@ -24,5 +24,3 @@ In this lab, you'll be working on two components — two buttons, to be more pre
 ## Resources
 
 - [React Mouse Events](https://facebook.github.io/react/docs/events.html#mouse-events)
-
-<p class='util--hide'>View <a href='https://learn.co/lessons/react-events-in-detail-lab'>Events In Detail Lab</a> on Learn.co and start learning to code for free.</p>
