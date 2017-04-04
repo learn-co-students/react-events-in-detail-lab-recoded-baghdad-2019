@@ -1,9 +1,9 @@
-const React = require('react');
-const { shallow } = require('enzyme');
-const sinon = require('sinon');
+import React from 'react';
+import { shallow } from 'enzyme';
+import sinon from 'sinon';
 
-const CoordinatesButton = require('../components/CoordinatesButton');
-const DelayedButton = require('../components/DelayedButton');
+import CoordinatesButton from '../components/CoordinatesButton';
+import DelayedButton from '../components/DelayedButton';
 
 const MOCKED_EVENT = {
   clientX: 5,
