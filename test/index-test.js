@@ -1,9 +1,10 @@
 import React from 'react';
+import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 
-import CoordinatesButton from '../components/CoordinatesButton';
-import DelayedButton from '../components/DelayedButton';
+import CoordinatesButton from '../src/components/CoordinatesButton';
+import DelayedButton from '../src/components/DelayedButton';
 
 const MOCKED_EVENT = {
   clientX: 5,
@@ -17,7 +18,7 @@ const MOCKED_EVENT = {
 
 const DELAY = 50;
 
-describe('<CoordinatesButton />', function () {
+describe('<CoordinatesButton />', () => {
   const spy = sinon.spy();
   const wrapper = shallow(<CoordinatesButton onReceiveCoordinates={spy} />);
 
@@ -25,22 +26,23 @@ describe('<CoordinatesButton />', function () {
     spy.reset();
   });
 
-  it('should have one button', function () {
-    expect(wrapper.find('button').length).toEqual(1);
+  it('should have one button', () => {
+    expect(wrapper.find('button').length).to.equal(1);
   });
 
-  it('should call the callback prop when the button is clicked', function () {
+  it('should call the callback prop when the button is clicked', () => {
     wrapper.find('button').simulate('click', MOCKED_EVENT);
-    expect(spy.firstCall.args[0]).toBeAn('array');
+    expect(spy.firstCall.args[0]).to.be.an('array');
   });
 
-  it('should pass the right coordinates to the callback prop', function () {
+  it('should pass the right coordinates to the callback prop', () => {
     wrapper.find('button').simulate('click', MOCKED_EVENT);
-    expect(spy.firstCall.args[0]).toEqual([5, 5]);
+    expect(spy.firstCall.args[0][0]).to.equal(5);
+    expect(spy.firstCall.args[0][1]).to.equal(5);
   });
 });
 
-describe('<DelayedButton />', function () {
+describe('<DelayedButton />', () => {
   const spy = sinon.spy();
   const wrapper = shallow(<DelayedButton onDelayedClick={spy} delay={DELAY} />);
 
@@ -49,23 +51,23 @@ describe('<DelayedButton />', function () {
     MOCKED_EVENT.persist.reset();
   });
 
-  it('should have one button', function () {
-    expect(wrapper.find('button').length).toEqual(1);
+  it('should have one button', () => {
+    expect(wrapper.find('button').length).to.equal(1);
   });
 
-  it('should call the callback prop after the delay', function (done) {
+  it('should call the callback prop after the delay', (done) => {
     wrapper.find('button').simulate('click', MOCKED_EVENT);
     setTimeout(() => {
-      expect(spy.calledOnce).toBeTruthy('The `onDelayedClick` prop was not called after the delay.');
+      expect(spy.calledOnce, 'The `onDelayedClick` prop was not called after the delay.').to.be.true;
       done();
     }, DELAY + 1);
   });
 
-  it('should pass the event to the callback prop', function (done) {
+  it('should pass the event to the callback prop', (done) => {
     wrapper.find('button').simulate('click', MOCKED_EVENT);
     setTimeout(() => {
-      expect(MOCKED_EVENT.persist.calledOnce).toBeTruthy('The event passed to the callback prop is being pooled');
-      expect(spy.firstCall.args[0]).toEqual(MOCKED_EVENT, 'The event is not being passed to the callback prop.');
+      expect(MOCKED_EVENT.persist.calledOnce, 'The event passed to the callback prop is being pooled').to.be.true;
+      expect(spy.firstCall.args[0]).to.equal(MOCKED_EVENT, 'The event is not being passed to the callback prop.');
       done();
     }, DELAY + 1);
   });
