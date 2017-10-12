@@ -1,10 +1,13 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import sinon from 'sinon';
 
 import CoordinatesButton from '../src/components/CoordinatesButton';
 import DelayedButton from '../src/components/DelayedButton';
+
+Enzyme.configure({ adapter: new Adapter() })
 
 const MOCKED_EVENT = {
   clientX: 5,
