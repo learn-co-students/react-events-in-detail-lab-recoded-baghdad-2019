@@ -10,5 +10,5 @@ ReactDOM.render(
     <CoordinatesButton />
     <DelayedButton />
   </div>,
-  document.getElementById('root')
+  document.getElementById('global')
 );
