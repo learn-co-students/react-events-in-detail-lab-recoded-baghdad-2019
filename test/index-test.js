@@ -66,11 +66,18 @@ describe('<DelayedButton />', () => {
     }, DELAY + 1);
   });
 
+  it('should persist the event', (done) => {
+    wrapper.find('button').simulate('click', MOCKED_EVENT);
+    setTimeout(() => {
+      expect(MOCKED_EVENT.persist.calledOnce, `The event passed to the callback prop is being persisted using the event.persist method`).to.be.true;
+      done();
+    }, DELAY + 1);
+  });
+
   it('should pass the event to the callback prop', (done) => {
     wrapper.find('button').simulate('click', MOCKED_EVENT);
     setTimeout(() => {
-      expect(MOCKED_EVENT.persist.calledOnce, 'The event passed to the callback prop is being pooled').to.be.true;
-      expect(spy.firstCall.args[0]).to.equal(MOCKED_EVENT, 'The event is not being passed to the callback prop.');
+      expect(spy.firstCall.args[0]).to.equal(MOCKED_EVENT, `The event is not being passed to the callback prop.`);
       done();
     }, DELAY + 1);
   });
