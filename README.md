@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this lab, you'll work with event data and persisting events.
+In this lab, you'll work with event data and persisting events. We will be using some event data you may not be familiar with, `event.clientX` and `event.clientY`. These provide the current x/y position of a mouse. Links are provided in the resources section to learn more.
 
 ## Two Buttons To Rule Them All
 
@@ -44,3 +44,5 @@ should be set to `this.props.delay`.
 ## Resources
 
 - [React Mouse Events](https://facebook.github.io/react/docs/events.html#mouse-events)
+- [ClientX Mouse Event](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientX)
+- [ClientY Mouse Event](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientY)
